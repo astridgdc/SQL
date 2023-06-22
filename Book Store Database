@@ -1,0 +1,26 @@
+--Create a book store database
+
+CREATE table Books (id INTEGER PRIMARY KEY, title TEXT, author TEXT, pages INTEGER, price INTEGER);
+
+INSERT into Books VALUES (1, "It Ends With Us", "Colleen Hoover", 386, 20.17);
+INSERT into Books VALUES (2, "The Martian", "Andy Weir", 384, 17.14);
+INSERT into Books VALUES (3, "Slammed", "Colleen Hoover", 354, 23.55);
+INSERT into Books VALUES (4, "Everything, Everything", "Nicola Yoon", 312, 16.17);
+INSERT into Books VALUES (5, "Heartless", "Marissa Meyer", 464, 17.94);
+INSERT into Books VALUES (6, "Carry On", "Rainbow Rowell", 517, 22.85);
+INSERT into Books VALUES (7, "The Song of Achilles", "Madeline Miller", 352, 17.71);
+INSERT into Books VALUES (8, "Simon Vs. The Homo Sapiens Agenda", "Becky Albertalli", 303, 17.41);
+INSERT into Books VALUES (9, "Forbidden", "Tabitha Suzuma", 418, 18.23);
+INSERT into Books VALUES (10, "The Diary of a Young Girl", "Anne Frank", 283, 18.02);
+INSERT into Books VALUES (11, "The Ballad of Songbirds and Snakes", "Suzanne Collins", 541, 19.68);
+INSERT into Books VALUES (12, "Verity", "Colleen Hoover", 323, 16.42);
+INSERT into Books_jungle VALUES (13, "Creepers", "David Morrell", 1342, 15);
+INSERT into Books_jungle VALUES (14, "The Hate U Give", "Angie Thomas", 454, 17.88);
+INSERT into Books_jungle VALUES (15, "Queen of Air and Darkness", "Cassandra Clare", 893, 19.31);
+
+--display the database ordered by price
+SELECT * FROM Books 
+ORDER BY price ASC;
+
+--what is the total amount of pages for all the books with a price higher than 18 dollars?
+SELECT SUM(pages) FROM Books WHERE price > 18 ORDER BY price ASC;
