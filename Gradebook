@@ -1,0 +1,13 @@
+-- Selected the name and grade from a student's grade database
+SELECT name, number_grade, ROUND((fraction_completed * 100)) AS percent_completed FROM student_grades;
+
+-- Created a table that  shows how many students have earned which letter_grade by using the statement CASE
+SELECT COUNT(*),
+CASE
+WHEN number_grade > 90 THEN "A"
+WHEN number_grade > 80 THEN "B"
+WHEN number_grade > 70 THEN "C"
+ELSE "F"
+END as letter_grade
+FROM student_grades
+GROUP BY letter_grade;
