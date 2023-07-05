@@ -26,8 +26,10 @@ AND orderID <> 'Order ID';
 
 /* Which product was the cheapest one sold in January, and what was the price? */
 
-SELECT Product, MIN(price) AS Cheapest FROM JanSales;
-
+SELECT Product, MIN(price) AS Cheapest 
+FROM JanSales
+GROUP BY Product, price
+ORDER by price ASC;
 
 /* What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products */
 
@@ -52,3 +54,11 @@ ON f.orderID = c.order_ID
 WHERE f.Quantity > 2
 AND length(orderID) = 6
 AND orderID <> 'Order ID';
+
+/* List all the products sold in Los Angeles in February, and include how many of each were sold. */
+
+SELECT Product, SUM(Quantity), location
+FROM FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product;
+
